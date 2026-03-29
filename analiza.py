@@ -13,8 +13,10 @@ import matplotlib.pyplot as plt
 import rasterio
 
 # --- Konfiguracja wejściowa ---
+BASE_DIR = '/content/drive/MyDrive/deforestacja'
+
 time_points = ['1985', '1993', '2001', '2011']
-image_files = [f'{y}.png' for y in time_points]
+image_files = [f'{BASE_DIR}/{y}.png' for y in time_points]
 
 # Progi klasyfikacji roślinności dla każdego indeksu
 classification_thresholds = {
@@ -102,7 +104,7 @@ print(classification_thresholds)
 # Wielospektralna analiza NDVI (pliki .tif)
 # ============================================================
 
-multispectral_files = ['1985api.tif', '1993api.tif', '2001api.tif', '2011api.tif']
+multispectral_files = [f'{BASE_DIR}/{y}api.tif' for y in time_points]
 ndvi_coverage = []
 NDVI_THRESHOLD = 0.2
 
